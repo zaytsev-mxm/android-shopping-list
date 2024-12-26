@@ -9,9 +9,9 @@ fun List(items: List<ShoppingListItemModel>, onItemCheckedChange: (ShoppingListI
     LazyColumn {
         items(items.size) { index ->
             val item = items[index]
-            ListItem(params = item, onCheckedChange = { isChecked ->
+            ListItem(params = item) { isChecked ->
                 onItemCheckedChange(item.copy(isChecked = isChecked))
-            })
+            }
         }
     }
 }
