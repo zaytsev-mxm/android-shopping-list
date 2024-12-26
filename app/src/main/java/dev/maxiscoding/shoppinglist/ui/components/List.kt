@@ -8,8 +8,9 @@ import dev.maxiscoding.shoppinglist.model.ShoppingListItemModel
 fun List(items: List<ShoppingListItemModel>, onItemCheckedChange: (ShoppingListItemModel) -> Unit) {
     LazyColumn {
         items(items.size) { index ->
-            ListItem(params = items[index], onCheckedChange = { isChecked ->
-                onItemCheckedChange(items[index].copy(isChecked = isChecked))
+            val item = items[index]
+            ListItem(params = item, onCheckedChange = { isChecked ->
+                onItemCheckedChange(item.copy(isChecked = isChecked))
             })
         }
     }
