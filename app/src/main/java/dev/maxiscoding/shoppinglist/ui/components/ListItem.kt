@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import dev.maxiscoding.shoppinglist.model.ShoppingListItemModel
 
 @Composable
-fun ListItem(params: ShoppingListItemModel) {
+fun ListItem(params: ShoppingListItemModel, onCheckedChange: (Boolean) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -24,7 +24,8 @@ fun ListItem(params: ShoppingListItemModel) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
                     checked = params.isChecked,
-                    onCheckedChange = { params.isChecked = !params.isChecked })
+                    onCheckedChange = onCheckedChange
+                )
                 Text(text = params.name)
             }
         }

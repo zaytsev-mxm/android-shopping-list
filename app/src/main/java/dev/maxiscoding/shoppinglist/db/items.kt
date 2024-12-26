@@ -1,10 +1,5 @@
 package dev.maxiscoding.shoppinglist.db
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import dev.maxiscoding.shoppinglist.model.ShoppingListItemModel
 
 val MY_ITEMS = listOf(
@@ -24,10 +19,3 @@ val MY_ITEMS = listOf(
     ShoppingListItemModel(id = "14", name = "Bananas", isChecked = false, isEditing = false),
     ShoppingListItemModel(id = "15", name = "Yogurt", isChecked = false, isEditing = false)
 )
-
-@Composable
-fun getItems(): List<ShoppingListItemModel> {
-    val items by remember { mutableStateOf(MY_ITEMS) }
-    return items
-
-}

@@ -5,10 +5,12 @@ import androidx.compose.runtime.Composable
 import dev.maxiscoding.shoppinglist.model.ShoppingListItemModel
 
 @Composable
-fun List(items: List<ShoppingListItemModel>) {
+fun List(items: List<ShoppingListItemModel>, onItemCheckedChange: (ShoppingListItemModel) -> Unit) {
     LazyColumn {
         items(items.size) { index ->
-            ListItem(params = items[index])
+            ListItem(params = items[index], onCheckedChange = { isChecked ->
+                onItemCheckedChange(items[index].copy(isChecked = isChecked))
+            })
         }
     }
 }
